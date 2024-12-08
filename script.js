@@ -1,9 +1,10 @@
-// Switch between login and register forms
+// Switch to Register form
 function switchToRegister() {
   document.getElementById("login-form").style.display = "none";
   document.getElementById("register-form").style.display = "block";
 }
 
+// Switch to Login form
 function switchToLogin() {
   document.getElementById("register-form").style.display = "none";
   document.getElementById("login-form").style.display = "block";
@@ -49,9 +50,46 @@ function loginUser() {
 
   if (user) {
     document.getElementById("login-error").innerText = "";
-    alert("Login successful! Welcome, " + username + ".");
-    // Redirect or show logged-in content
+    alert("Login successful!");
+    localStorage.setItem("currentUser", username);  // Store logged-in user
+    window.location.href = "dashboard.html";  // Redirect to dashboard
   } else {
     document.getElementById("login-error").innerText = "Invalid username or password.";
   }
 }
+
+// Check if user is logged in on page load
+function checkLoginStatus() {
+  const currentUser = localStorage.getItem("currentUser");
+  if (currentUser) {
+    document.getElementById("login-register").style.display = "none";
+    document.getElementById("welcome-message").innerText = `Welcome, ${currentUser}`;
+  }
+}
+
+// Display username on the dashboard
+function showDashboardContent() {
+  const currentUser = localStorage.getItem("currentUser");
+  if (currentUser) {
+    document.getElementById("username").innerText = currentUser;
+  } else {
+    window.location.href = "index.html";  // Redirect to login if not logged in
+  }
+}
+
+// Logout user
+function logoutUser() {
+  localStorage.removeItem("currentUser");
+  alert("You have been logged out.");
+  window.location.href = "index.html";  // Redirect to homepage
+}
+
+// Call functions when the page loads
+window.onload = function() {
+  if (document.body.id === "login-register") {
+    checkLoginStatus();
+  }
+  if (document.body.id === "dashboard-content") {
+    showDashboardContent();
+  }
+};
