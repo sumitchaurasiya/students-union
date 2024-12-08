@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website with Login System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to My Website</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#student-union">Students' Union</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="login-register">
+    <h2>Login / Register</h2>
+    <div id="login-form">
+      <h3>Login</h3>
+      <input type="text" id="login-username" placeholder="Username" />
+      <input type="password" id="login-password" placeholder="Password" />
+      <button onclick="loginUser()">Login</button>
+      <p id="login-error"></p>
+      <button onclick="switchToRegister()">Don't have an account? Register here</button>
+    </div>
+
+    <div id="register-form" style="display:none;">
+      <h3>Register</h3>
+      <input type="text" id="register-username" placeholder="Username" />
+      <input type="password" id="register-password" placeholder="Password" />
+      <button onclick="registerUser()">Register</button>
+      <p id="register-error"></p>
+      <button onclick="switchToLogin()">Already have an account? Login here</button>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>This is a basic website with a login and registration system. The login data is stored locally in your browser!</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Web Design</li>
+      <li>Development</li>
+      <li>Free Guidance</li>
+    </ul>
+  </section>
+
+  <section id="student-union">
+    <h2>Students' Union</h2>
+    <p>Welcome to the Students' Union section. Here, you will find updates about student elections, events, and activities conducted by the union.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: example@example.com</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 My Website. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
